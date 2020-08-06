@@ -18,6 +18,8 @@ namespace Starwars
 
             //List<Planet> queriedPlanets = planets.Where(x => { return wantedPlanets.Contains(x.Name); }).ToList();
             // Opgave 1
+            
+            //Er der en konkret årsag til at du ikke benytter metoden StartsWith?
             List<Planet> allPlanetsStartingWithLetterM = planets.Where(x => x.Name[0] == 'M').ToList();
 
             foreach(Planet p in allPlanetsStartingWithLetterM)
@@ -28,7 +30,8 @@ namespace Starwars
             Console.WriteLine("--------------");
 
             // Opgave 2
-            List<Planet> allPlanetsContainingTheCharacterY = planets.Where(x => x.Name.Contains("Y") || x.Name.Contains("y")).ToList();
+            //Det er god skik i forhold til læsevenligheden at indsætte parateser omkring udtryk
+            List<Planet> allPlanetsContainingTheCharacterY = planets.Where((x => x.Name.Contains("Y") )|| )x.Name.Contains("y"))).ToList();
 
             foreach(Planet p in allPlanetsContainingTheCharacterY)
             {
@@ -93,6 +96,7 @@ namespace Starwars
 
             // Opgave 8
 
+            //Verdens længste variable navn :)
             List<Planet> allPlanetsWithARotationPeriodLessThan30OrSurfaceWaterGreaterThan50AndNameContainsBA = planets.Where(x => (x.RotationPeriod < 30 || x.SurfaceWater > 50) && x.Name.Contains("ba")).OrderBy(x => x.Name).ThenBy(x => x.SurfaceWater).ThenBy(x => x.RotationPeriod).ToList();
 
             foreach(Planet p in allPlanetsWithARotationPeriodLessThan30OrSurfaceWaterGreaterThan50AndNameContainsBA)
@@ -138,6 +142,7 @@ namespace Starwars
 
             // Opgave 12
 
+            //Startswith ekker Endswith?
             List<Planet> allPlanetsBeginningWithAOrEndingOnS = planets.Where(x => x.Name[0].ToString().ToLower() == "a" || x.Name[x.Name.Length - 1] == 's').ToList();
 
             foreach(Planet p in allPlanetsBeginningWithAOrEndingOnS)
